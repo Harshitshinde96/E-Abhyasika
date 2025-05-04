@@ -1,4 +1,4 @@
-# Learning Management System
+# Ed-Tech For Low Cost Learning (E-Abhyasika)
 
 Full Stack Project project build with MERN Stack along with other technologies.
 
