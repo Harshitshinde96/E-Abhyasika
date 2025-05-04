@@ -22,11 +22,15 @@ import "@smastrom/react-rating/style.css";
 import "./App.css";
 import SearchCourses from "./features/Courses/SearchCourses";
 import NavLayout from "./components/NavLayout";
+import CourseDetails from "./features/Courses/Course/CourseDetails";
+import PythonCourseDetails from "./features/Courses/Course/PythonCourseDetails";
+import CCourseDetails from "./features/Courses/Course/CCourseDetails";
+import CourseLearn from "./features/Courses/Course/CourseLearn";
+import PythonCourseLearn from "./features/Courses/Course/PythonCourseLearn";
+import CCourseLearn from "./features/Courses/Course/CCourseLearn";
 
 // ✅ Import Toaster
 import { Toaster } from "react-hot-toast";
-import CourseDetails from "./features/CourseDetails";
-import CourseLearn from "./features/CourseLearn";
 
 function App() {
   return (
@@ -47,11 +51,19 @@ function App() {
         <Route element={<PersistLogin />}>
           <Route element={<NavLayout />}>
             <Route path="/" element={<Home />} />
-            <Route path="/course/:id" element={<CourseDetails />} />
-            <Route path="/course/:id/learn" element={<CourseLearn />} />
             <Route path="/search/:query" element={<SearchCourses />} />
             <Route path="/teaching" element={<Teaching />} />
             <Route path="/course/:courseId" element={<Course />} />
+
+            {/* Course Details Routes */}
+            <Route path="/course/java" element={<CourseDetails />} />
+            <Route path="/course/python" element={<PythonCourseDetails />} />
+            <Route path="/course/c" element={<CCourseDetails />} />
+
+            {/* Course Learning Routes */}
+            <Route path="/course/java/learn" element={<CourseLearn />} />
+            <Route path="/course/python/learn" element={<PythonCourseLearn />} />
+            <Route path="/course/c/learn" element={<CCourseLearn />} />
 
             <Route
               element={

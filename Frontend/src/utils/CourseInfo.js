@@ -1,26 +1,14 @@
-export function CourseInfo(courses) {
-  let studentsEnrolled = 0;
-  courses?.forEach((course) => {
-    studentsEnrolled += course.studentsEnrolled.length;
-  });
-
-  let totalRating = 0;
-  let ratingLength = 0;
-  courses?.forEach((course) => {
-    course.ratingAndReviews.forEach((review) => {
-      totalRating += review.rating;
-    });
-    ratingLength += course.ratingAndReviews.length;
-  });
-
-  let ratingAvg = 0;
-  if (ratingLength > 0) {
-    ratingAvg = totalRating / ratingLength;
+export const CourseInfo = (courses) => {
+  if (!courses || !Array.isArray(courses) || courses.length === 0) {
+    return {
+      ratingAvg: 0,
+      ratingLength: 0
+    };
   }
 
+  const course = courses[0];
   return {
-    studentsEnrolled: studentsEnrolled,
-    ratingLength: ratingLength,
-    ratingAvg: ratingAvg,
+    ratingAvg: course.ratingAvg || 0,
+    ratingLength: course.ratingLength || 0
   };
-}
+};
